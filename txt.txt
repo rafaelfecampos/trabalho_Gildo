@@ -1,0 +1,6 @@
+layout inicial
+grid inicialgrid jogo
+
+
+função aleatoria array
+imagens
