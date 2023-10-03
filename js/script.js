@@ -73,7 +73,7 @@ const img = document.querySelector(".imagem");
 for(let i = 0; i<15;i++){
     const imagemElement = document.createElement('img');
     imagemElement.src = imagem[i];
-    imagemElement.classList = `img`;
+    imagemElement.className = `img`;
     imagemElement.id=`imagem${i+1}`;
     imagemElement.alt = `imagem ${i+1}`;
     img.appendChild(imagemElement);
