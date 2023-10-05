@@ -1,16 +1,3 @@
-// const bJogo = document.getElementById('bJogo')
-
-// bJogo.addEventListener('click',event=>{
-
-// })
-
-
-
-
-
-
-
-
 let imagem = [
     './assets/images/1.jpg',
     './assets/images/2.jpg',
@@ -34,20 +21,6 @@ let imagem = [
 
 ];
 
-
-function imgAleatorias() {
-    imagem = Math.floor(Math.random() * imagem.length);
-
-}
-// let i= 0;
-// imagem.forEach(element => {
-//     element.innerHTML += `<img src=${imagem[i]} id="imagem${i+1}" alt="imagem ${i+1}]">`
-//     i++;
-
-// });
-
-
-
 function aleatorio(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -56,19 +29,10 @@ function aleatorio(array) {
     return array;
 }
 
-
-
 aleatorio(imagem);
 
 const img = document.querySelector(".imagem");
-// imagem.forEach(url => {
-//     const imagemElement = document.createElement('img');
-//     imagemElement.src = url;
-//     imagemElement.id = imagem[i + 1];
-//     imagemElement.alt = imagem[i + 1];
-//     img.appendChild(imagemElement);
-//     i++;
-// });
+const imagens = document.querySelectorAll(".img")
 
 for(let i = 0; i<15;i++){
     const imagemElement = document.createElement('img');
@@ -77,4 +41,11 @@ for(let i = 0; i<15;i++){
     imagemElement.id=`imagem${i+1}`;
     imagemElement.alt = `imagem ${i+1}`;
     img.appendChild(imagemElement);
-}
+}   
+
+
+imagens.forEach(element => {
+    element.addEventListener('click',event=>{
+        event.imagemElement.src=''
+    })
+});
