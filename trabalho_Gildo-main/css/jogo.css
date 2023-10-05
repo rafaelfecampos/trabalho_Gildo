@@ -2,11 +2,18 @@ body{
     margin: 0;
     padding: 0;
     display: grid;
+    text-align: center;
+    background-color: rgb(71, 100, 71);
+    background-image:url("../assets/bg/bg_jungle2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
 }
 .grid{
     display: grid;
-    width: 100vw;
-    height: 100vh;
+    width: 90vw;
+    height: 90vh;
     grid-template:
     'titulo' 1fr
     'menu' 1fr
@@ -18,6 +25,8 @@ body{
 .img{
     height: 128px;
     width: 128px;
+    border-radius: 25%;
+    border: 1px solid;
 }
 
 .jogo1{
@@ -26,7 +35,8 @@ body{
     height: 100%;
     width: 100%;
     margin: 1px;
-    padding: 1px;
+    padding: 50px;
+    
     grid-template:
     'imagem1 imagem2 imagem3 imagem4 imagem5'1fr
     'imagem6 imagem7 imagem8 imagem9 imagem10'1fr
@@ -113,18 +123,17 @@ body{
 
 #titulo{
     grid-area: titulo;
-    background-color: aqua;
+    
 }
 #menu{
     grid-area: menu;
-    background-color: yellow;
+    
 }
 
 #rodape{
     grid-area: rodape;
-    background-color: grey;
+   
 }
 #jogo{
     grid-area: jogo;
-    background-color: blueviolet;
 }

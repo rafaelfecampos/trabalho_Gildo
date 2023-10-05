@@ -1,6 +1,17 @@
+03/10
 layout inicial
 grid inicialgrid jogo
 
 
 função aleatoria array
 imagens
+
+05/10
+pagina jogo
+css do jogo
+script inicial do jogo
+
+setamos background principal e jogo
+definimos bordas para as imagens
+
+corrigimos formatação de código

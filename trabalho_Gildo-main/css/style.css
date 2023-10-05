@@ -3,6 +3,11 @@ body{
     margin: 0;
     padding: 0;
     display: grid;
+    text-align: center;
+    background-image:url("../assets/bg/bg_jungle2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 .grid{
     display: grid;
@@ -21,36 +26,36 @@ body{
     width: 100vw;
     height: 100vh;
     grid-template: 
-    "principal jogo" 1fr 1fr
-    /1fr
+    "principal jogo" .5fr
+    /1fr 1fr
     ;
 }
 #titulo{
     grid-area: titulo;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 #menu{
     grid-area: menu;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 #instrucao{
     grid-area: instrucao;
-    background-color: red;
+    /* background-color: red; */
 }
 #historia{
     grid-area: historia;
-    background-color: green;
+    /* background-color: green; */
 }
 #rodape{
     grid-area: rodape;
-    background-color: grey;
+    /* background-color: grey; */
 }
 #principal{
     grid-area: principal;
-    background-color: blue;
+    /* background-color: blue; */
 }
 #jogo{
     grid-area: jogo;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
 

@@ -32,7 +32,7 @@ function aleatorio(array) {
 aleatorio(imagem);
 
 const img = document.querySelector(".imagem");
-const imagens = document.querySelectorAll(".img")
+
 
 for(let i = 0; i<15;i++){
     const imagemElement = document.createElement('img');
@@ -43,9 +43,11 @@ for(let i = 0; i<15;i++){
     img.appendChild(imagemElement);
 }   
 
+const imagens = document.querySelectorAll('.img');
 
-imagens.forEach(element => {
-    element.addEventListener('click',event=>{
-        event.imagemElement.src=''
-    })
+
+imagens.forEach((aimagem) => {
+    aimagem.addEventListener('click', () => {
+       aimagem.remove();
+    });
 });
