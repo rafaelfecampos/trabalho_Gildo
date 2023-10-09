@@ -63,6 +63,80 @@ body {
     ;
 }
 
+#titulo {
+    grid-area: titulo;
+    
+}
+
+#menu {
+    grid-area: menu;
+    
+}
+
+#rodape {
+    grid-area: rodape;
+    
+}
+
+.jogo {
+    grid-area: jogo;
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 3rem;
+}
+
+.cronometro {
+    display: flex;
+    font-size: 50px;
+    grid-area: cronometro;
+}
+
+.tempo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    margin-right: 5px;
+}
+
+.separador {
+    padding: 0 10px;
+}
+
+.botoes {
+    display: flex;
+    gap: 1rem;
+}
+
+.botao {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 1px solid #000;
+    transition: all 0.2s ease-in-out;
+}
+.botao:hover{
+    transform: scale(1.1);
+}
+#reset{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
 #imagem1 {
     grid-area: imagem1;
 
@@ -155,67 +229,4 @@ body {
 #imagem19 {
     grid-area: imagem19;
 
-}
-
-#titulo {
-    grid-area: titulo;
-
-}
-
-#menu {
-    grid-area: menu;
-
-}
-
-#rodape {
-    grid-area: rodape;
-
-}
-
-.jogo {
-    grid-area: jogo;
-
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding-top: 3rem;
-}
-
-.cronometro {
-    display: flex;
-    font-size: 50px;
-    grid-area: cronometro;
-}
-
-.tempo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 50px;
-    margin-right: 5px;
-}
-
-.separador {
-    padding: 0 10px;
-}
-
-.botoes {
-    display: flex;
-    gap: 1rem;
-}
-
-.botao {
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 30px;
-    cursor: pointer;
-    border: 1px solid #CCC;
-    transition: all 0.2s ease-in-out;
-}
-.botao:hover{
-    transform: scale(1.1);
 }

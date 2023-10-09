@@ -20,6 +20,8 @@ let imagem = [
     './assets/images/19.jpg'
 
 ];
+let vetorImg1=[];
+let vetorImg2=[];
 
 function aleatorio(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -33,23 +35,13 @@ function aleatorio(array) {
 
 const img = document.querySelector(".imagem");
 
+
 function iniciarImagens() {
+    vetorImg1 = aleatorio(imagem);
     for (let i = 0; i < 15; i++) {
         const imagemElement = document.createElement('img');
-        imagemElement.src = imagem[i];
-        imagemElement.className = `img`;
-        imagemElement.id = `imagem${i + 1}`;
-        imagemElement.alt = `imagem ${i + 1}`;
-        img.appendChild(imagemElement);
-    }
-    aleatorio(imagem);
-}
-function iniciarImagens2() {
-    const imagemElement = document.createElement('img');
-    img.remove();
-    for (let i = 0; i < 15; i++) {
-        const imagemElement = document.createElement('img');
-        imagemElement.src = imagem[i];
+        imagemElement.src = vetorImg1[i];
+        // vetorImg1[i] = imagem[i];
         imagemElement.className = `img`;
         imagemElement.id = `imagem${i + 1}`;
         imagemElement.alt = `imagem ${i + 1}`;
@@ -58,16 +50,33 @@ function iniciarImagens2() {
     
 }
 
+function iniciarImagens2() {
+    vetorImg2 = aleatorio(imagem);
+    for (let i = 0; i < 15; i++) {
+        const trocaImg = document.querySelector(`#imagem${i+1}`);
+        trocaImg.setAttribute('src', vetorImg2[i]);
+        // vetorImg2[i] = imagem[i];
+        // trocaImg.setAttribute('src', vetorImg2[i] );
+        // imagemElement.className = `img`;
+        // imagemElement.id = `imagem${i + 1}`;
+        // imagemElement.alt = `imagem ${i + 1}`;
+        // img.appendChild(imagemElement);
+    }  
+    console.log(vetorImg1);
+    console.log('stop');
+    console.log(vetorImg2);
+}
+
 
 const imagens = document.querySelectorAll('.img');
 
-function removeIMG (){
-    imagens.forEach((aimagem) => {
-        aimagem.addEventListener('click', () => {
-            aimagem.remove();
-        });
-    });
-}
+// function removeIMG() {
+//     imagens.forEach((aimagem) => {
+//         aimagem.addEventListener('click', () => {
+//             aimagem.remove();
+//         });
+//     });
+// }
 
 
 
@@ -75,47 +84,60 @@ const minutos = document.querySelector("#minutos");
 const segundos = document.querySelector("#segundos");
 const milisegundos = document.querySelector("#milisegundos");
 const botaoIniciar = document.querySelector("#iniciar");
+const botaoPausar = document.querySelector("#pause");
+const botaoContinuar = document.querySelector("#continuar");
+const botaoReset = document.querySelector("#reset");
+
 
 let min = 0, sec = 58, milisec = 0;
 let intervalo;
+let parar = false;
+let start = true;
 
 
 
 
-function iniciarTimer(){
-    
-    intervalo = setInterval(()=>{
-        
-        milisec+=10;
-        if(min<1){  
-            if(milisec === 1000){
-                sec++;
-                milisec=0;
+function iniciarTimer() {
+    if (start) {
+        iniciarImagens();
+        intervalo = setInterval(() => {
+            if (parar == false) {
+
+                milisec += 10;
+                if (min < 1) {
+                    if (milisec === 1000) {
+                        sec++;
+                        milisec = 0;
+                    }
+                    if (sec === 60) {
+                        min++;
+                        sec = 0;
+                    }
+                    minutos.textContent = formatoCronometro(min);
+                    segundos.textContent = formatoCronometro(sec);
+                    milisegundos.textContent = formatoMilisec(milisec);
+                    if (min == 1) {
+                        parar = true;
+                        start = false;
+                        //iniciarImagens();
+                        // aleatorio(imagem);
+                        iniciarImagens2();
+                    }
+                }
             }
-            if(sec===60){
-                min++;
-                sec=0;
-            }
-            minutos.textContent = formatoCronometro(min);
-            segundos.textContent = formatoCronometro(sec);
-            milisegundos.textContent = formatoMilisec(milisec);
-            }
-           if(min == 1){ 
-            setInterval(setInterval,60000)
-            iniciarImagens()
-           }
-                
-    },10)
-   
-        
-   
+
+
+        }, 10)
+    }
+
+
+
 }
 
-function formatoCronometro(tempo){
-    return tempo<10? `0${tempo}`: tempo;
+function formatoCronometro(tempo) {
+    return tempo < 10 ? `0${tempo}` : tempo;
 }
-function formatoMilisec(tempo){
-    return tempo<100? `${tempo}`.padStart(3, "0"): tempo;
+function formatoMilisec(tempo) {
+    return tempo < 100 ? `${tempo}`.padStart(3, "0") : tempo;
 }
 
- 

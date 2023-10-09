@@ -25,3 +25,6 @@ link pagina principal
 
 07/10
 cronometro iniciado
+
+8/10
+cronometro terminado
