@@ -37,11 +37,11 @@ const img = document.querySelector(".imagem");
 
 
 function iniciarImagens() {
-    vetorImg1 = aleatorio(imagem);
+    aleatorio(imagem);
     for (let i = 0; i < 15; i++) {
         const imagemElement = document.createElement('img');
-        imagemElement.src = vetorImg1[i];
-        // vetorImg1[i] = imagem[i];
+        imagemElement.src = imagem[i];
+        vetorImg1[i] = imagem[i];
         imagemElement.className = `img`;
         imagemElement.id = `imagem${i + 1}`;
         imagemElement.alt = `imagem ${i + 1}`;
@@ -51,11 +51,11 @@ function iniciarImagens() {
 }
 
 function iniciarImagens2() {
-    vetorImg2 = aleatorio(imagem);
+   aleatorio(imagem);
     for (let i = 0; i < 15; i++) {
         const trocaImg = document.querySelector(`#imagem${i+1}`);
-        trocaImg.setAttribute('src', vetorImg2[i]);
-        // vetorImg2[i] = imagem[i];
+        trocaImg.setAttribute('src', imagem[i]);
+        vetorImg2[i] = imagem[i];
         // trocaImg.setAttribute('src', vetorImg2[i] );
         // imagemElement.className = `img`;
         // imagemElement.id = `imagem${i + 1}`;
@@ -70,13 +70,13 @@ function iniciarImagens2() {
 
 const imagens = document.querySelectorAll('.img');
 
-// function removeIMG() {
-//     imagens.forEach((aimagem) => {
-//         aimagem.addEventListener('click', () => {
-//             aimagem.remove();
-//         });
-//     });
-// }
+function removeIMG() {
+    imagens.forEach((aimagem) => {
+        aimagem.addEventListener('click', () => {
+            aimagem.remove();
+        });
+    });
+}
 
 
 
@@ -125,7 +125,6 @@ function iniciarTimer() {
                     }
                 }
             }
-
 
         }, 10)
     }
