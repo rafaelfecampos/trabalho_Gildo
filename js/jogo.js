@@ -20,8 +20,8 @@ let imagem = [
     './assets/images/19.jpg'
 
 ];
-let vetorImg1=[];
-let vetorImg2=[];
+let vetorImg1 = [];
+let vetorImg2 = [];
 
 function aleatorio(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -47,59 +47,60 @@ function iniciarImagens() {
         imagemElement.alt = `imagem ${i + 1}`;
         img.appendChild(imagemElement);
     }
-    
+
 }
 
 function iniciarImagens2() {
-   aleatorio(imagem);
+    aleatorio(imagem);
     for (let i = 0; i < 15; i++) {
-        const trocaImg = document.querySelector(`#imagem${i+1}`);
+        const trocaImg = document.querySelector(`#imagem${i + 1}`);
         trocaImg.setAttribute('src', imagem[i]);
         vetorImg2[i] = imagem[i];
-        // trocaImg.setAttribute('src', vetorImg2[i] );
-        // imagemElement.className = `img`;
-        // imagemElement.id = `imagem${i + 1}`;
-        // imagemElement.alt = `imagem ${i + 1}`;
-        // img.appendChild(imagemElement);
-    }  
-    console.log(vetorImg1);
-    console.log('stop');
-    console.log(vetorImg2);
+    }
 }
 
-
-const imagens = document.querySelectorAll('.img');
-
+//jogo
 function removeIMG() {
-    imagens.forEach((aimagem) => {
-        aimagem.addEventListener('click', () => {
+    const imagens = document.querySelectorAll('.img');
+    let cont = 0;
+    console.log("iniciou");
+    imagens.forEach(aimagem => {
+        console.log('iniciou2');
+        aimagem.addEventListener('click', event => {
             aimagem.remove();
+            let fimDeJogo = true;
+            for (let i = 0; i < 15; i++) {
+                if (aimagem.getAttribute('src') == vetorImg1[i]) {
+                    console.log(aimagem.src, vetorImg1[i]);
+                    fimDeJogo = false;
+                    cont++;
+                    break;
+                }
+            }
+
+            if (fimDeJogo) {
+                alert(`Fim de jogo\nPontuação: ${cont} acertos!`);
+                window.location.reload();
+            }
         });
     });
 }
 
-
-
+//Cronômetro
 const minutos = document.querySelector("#minutos");
 const segundos = document.querySelector("#segundos");
 const milisegundos = document.querySelector("#milisegundos");
 const botaoIniciar = document.querySelector("#iniciar");
-const botaoPausar = document.querySelector("#pause");
-const botaoContinuar = document.querySelector("#continuar");
-const botaoReset = document.querySelector("#reset");
-
-
+const cronometro = document.querySelector(".container");
 let min = 0, sec = 58, milisec = 0;
 let intervalo;
 let parar = false;
 let start = true;
 
-
-
-
-function iniciarTimer() {
+function iniciarJogo() {
     if (start) {
         iniciarImagens();
+        botaoIniciar.remove();
         intervalo = setInterval(() => {
             if (parar == false) {
 
@@ -119,24 +120,19 @@ function iniciarTimer() {
                     if (min == 1) {
                         parar = true;
                         start = false;
-                        //iniciarImagens();
-                        // aleatorio(imagem);
                         iniciarImagens2();
+                        removeIMG();
                     }
                 }
             }
-
         }, 10)
     }
-
-
-
 }
 
 function formatoCronometro(tempo) {
-    return tempo < 10 ? `0${tempo}` : tempo;
+    return (tempo < 10) ? `0${tempo}` : tempo;
 }
 function formatoMilisec(tempo) {
-    return tempo < 100 ? `${tempo}`.padStart(3, "0") : tempo;
+    return (tempo < 100) ? `${tempo}`.padStart(3, "0") : tempo;
 }
 

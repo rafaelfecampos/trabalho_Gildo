@@ -125,17 +125,6 @@ body {
 .botao:hover{
     transform: scale(1.1);
 }
-#reset{
-    display: none;
-}
-
-
-
-
-
-
-
-
 
 #imagem1 {
     grid-area: imagem1;
