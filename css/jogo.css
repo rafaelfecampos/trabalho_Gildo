@@ -1,16 +1,15 @@
+/*grids*/
 body {
     margin: 0;
     padding: 0;
     display: grid;
-    text-align: center;
+    /* text-align: center; */
     background-color: rgb(71, 100, 71);
     background-image: url("../assets/bg/bg_jungle2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-
 }
-
 .grid {
     display: grid;
     width: 100vw;
@@ -18,24 +17,34 @@ body {
     grid-template:
         'titulo' 1fr
         'menu' 1fr
-        'jogo'
-        'rodape' 1fr;
+        'jogo' minmax(650px, 100%)
+        'rodape' auto;
     align-items: center;
-
-    ;
 }
-
-.grid-menu {
+.grid-menu{
     display: grid;
-    width: 100%;
+    width: 50%;
     height: 100%;
-    grid-template:
-        "principal jogo" .5fr
-        /1fr 1fr
+    padding: 0px 25% 0px 25%;
+    grid-template: 
+    "principal jogo" .5fr
+    /1fr 1fr
     ;
-
+}
+.jogo1 {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    padding: 50px 50px;
+    grid-template:
+        'imagem1 imagem2 imagem3 imagem4 imagem5' 1fr
+        'imagem6 imagem7 imagem8 imagem9 imagem10' 1fr
+        'imagem11 imagem12 imagem13 imagem14 imagem15' 1fr
+        /1fr 1fr 1fr 1fr 1fr
+    ;
 }
 
+/*Imagens*/
 .img {
     height: 128px;
     width: 128px;
@@ -49,39 +58,7 @@ body {
     transform: scale(1.2);
 }
 
-.jogo1 {
-    display: grid;
-    height: 100%;
-    width: 100%;
-    padding: 50px 50px;
-   
-    grid-template:
-        'imagem1 imagem2 imagem3 imagem4 imagem5' 1fr
-        'imagem6 imagem7 imagem8 imagem9 imagem10' 1fr
-        'imagem11 imagem12 imagem13 imagem14 imagem15' 1fr
-        /1fr 1fr 1fr 1fr 1fr
-    ;
-}
-
-#titulo {
-    grid-area: titulo;
-}
-
-#menu {
-    grid-area: menu;
-    
-}
-
-#rodape {
-    grid-area: rodape;
-    
-}
-
-.jogo {
-    grid-area: jogo;
-    
-}
-
+/*Cronometro*/
 .container {
     display: flex;
     flex-direction: column;
@@ -95,6 +72,12 @@ body {
     font-size: 50px;
     grid-area: cronometro;
     font-family: 'clock';
+    background-color: #000000;
+    border-style: solid;
+    border-color: rgb(184, 3, 3);
+    border-radius: 10px;
+
+    color: white;
 }
 
 .tempo {
@@ -124,6 +107,37 @@ body {
 }
 .botao:hover{
     transform:scale(1.1);
+}
+/*Elementos*/
+h1{
+    font-family: 'Peralta';
+    font-size: 4em;
+    color: darkred;
+     text-shadow: 0 0 5px black; 
+    -webkit-text-stroke:1px white;
+    
+    
+}
+#titulo{
+    padding: 0px 0px 0px 0px;
+    grid-area: titulo;
+    text-align: center;
+    /* background-color: aqua; */
+}
+#menu{
+    grid-area: menu;
+    text-align: center;
+    /* background-color: yellow; */
+}
+
+#rodape {
+    grid-area: rodape;
+    
+}
+
+.jogo {
+    grid-area: jogo;
+    
 }
 
 #imagem1 {
@@ -219,17 +233,13 @@ body {
     grid-area: imagem19;
 
 }
+
+/*Fontes*/
 @font-face {
     font-family: clock;
     src: url(../assets/fonts/alarm\ clock.ttf);
 }
-h1{
-    font-family: 'Peralta';
-    font-size: 3em;
-    color: darkred;
-    text-shadow: 0 0 3px white;
-    
-}
+
 @font-face {
     font-family: Peralta;
     src: url(../assets/fonts/Peralta-Regular.ttf);

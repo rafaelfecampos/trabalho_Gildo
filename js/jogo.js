@@ -20,6 +20,16 @@ let imagem = [
     './assets/images/19.jpg'
 
 ];
+
+const butJogo = document.getElementById('butJogo');
+butJogo.addEventListener('click', () => {
+    window.location.href = 'jogo.html';
+});
+const butInicial = document.getElementById('butInicial');
+butInicial.addEventListener('click', () => {
+    window.location.href = 'index.html';
+});
+
 let vetorImg1 = [];
 let vetorImg2 = [];
 
@@ -92,7 +102,7 @@ const segundos = document.querySelector("#segundos");
 const milisegundos = document.querySelector("#milisegundos");
 const botaoIniciar = document.querySelector("#iniciar");
 const cronometro = document.querySelector(".container");
-let min = 0, sec = 58, milisec = 0;
+let min = 0, sec = 50, milisec = 0;
 let intervalo;
 let parar = false;
 let start = true;
@@ -103,7 +113,6 @@ function iniciarJogo() {
         botaoIniciar.remove();
         intervalo = setInterval(() => {
             if (parar == false) {
-
                 milisec += 10;
                 if (min < 1) {
                     if (milisec === 1000) {
@@ -128,6 +137,40 @@ function iniciarJogo() {
         }, 10)
     }
 }
+// function iniciarJogo() {
+//     if (start) {
+//         iniciarImagens();
+//         botaoIniciar.remove();
+//         intervalo = setInterval(() => {
+//             if (parar == false) {
+//                 milisec -= 10;  // Alterado para decrementar 10 milissegundos
+//                 if (milisec < 0) {
+//                     milisec = 999;
+//                     sec--;  // Decrementa um segundo
+//                     if (sec < 0) {
+//                         sec = 59;
+//                         min--;  // Decrementa um minuto
+//                         if (min < 0) {
+//                             // Tempo acabou
+//                             parar = true;
+//                             start = false;
+//                             iniciarImagens2();
+//                             removeIMG();
+//                         }
+//                     }
+//                 }
+//                 minutos.textContent = formatoCronometro(min);
+//                 segundos.textContent = formatoCronometro(sec);
+//                 milisegundos.textContent = formatoMilisec(milisec);
+//             }
+//         }, 10);
+//     }
+// }
+
+
+
+
+
 
 function formatoCronometro(tempo) {
     return (tempo < 10) ? `0${tempo}` : tempo;
