@@ -132,6 +132,7 @@ h1{
 
 #rodape {
     grid-area: rodape;
+    font-family: Arial, sans-serif; 
     
 }
 

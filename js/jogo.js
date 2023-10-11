@@ -114,7 +114,7 @@ const segundos = document.querySelector("#segundos");
 const milisegundos = document.querySelector("#milisegundos");
 const botaoIniciar = document.querySelector("#iniciar");
 const cronometro = document.querySelector(".container");
-let min = 0, sec = 5, milisec = 0;
+let min = 1, sec = 0, milisec = 0;
 let intervalo;
 let parar = false;
 let start = true;
