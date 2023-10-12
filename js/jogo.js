@@ -1,3 +1,4 @@
+//imagens
 let imagem = [
     './assets/images/1.jpg',
     './assets/images/2.jpg',
@@ -20,19 +21,6 @@ let imagem = [
     './assets/images/19.jpg'
 
 ];
-
-const butJogo = document.getElementById('butJogo');
-butJogo.addEventListener('click', () => {
-    window.location.href = 'jogo.html';
-});
-const butInicial = document.getElementById('butInicial');
-butInicial.addEventListener('click', () => {
-    window.location.href = 'index.html';
-});
-
-let vetorImg1 = [];
-let vetorImg2 = [];
-
 function aleatorio(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -45,6 +33,8 @@ function aleatorio(array) {
 
 const img = document.querySelector(".imagem");
 
+let vetorImg1 = [];
+let vetorImg2 = [];
 
 function iniciarImagens() {
     aleatorio(imagem);
@@ -69,46 +59,18 @@ function iniciarImagens2() {
     }
 }
 
-//jogo
-function removeIMG() {
-    const imagens = document.querySelectorAll('.img');
-    let cont = 0;
-    imagens.forEach(aimagem => {
-        aimagem.addEventListener('click', event => {
-            let errado = true;
-            for (let i = 0; i < 15; i++) {
-                if (aimagem.getAttribute('src') == vetorImg1[i]) {
-                    errado = false;
-                    cont++;
-                    break;
-                }
-                else if (aimagem.getAttribute('src') != vetorImg1[i]) {
-                    errado = true;
-                }
-            }
-            if (errado) {
-                alert(`Fim de jogo\nPontuação: ${cont}/${pontuacaoVitoria()} acertos!`);
-                window.location.reload();
-            }
-            else if(cont==pontuacaoVitoria()){
-                alert(`Você achou todas as suas fotos!!!\nPontuação: ${cont}/${pontuacaoVitoria()}!`);
-                window.location.href = "../index.html";
-            }
-            aimagem.remove();
-        });
-    });
-}
-function pontuacaoVitoria() {
-    let cont = 0;
-    vetorImg1.forEach(elemento =>{
-        vetorImg2.forEach(elemento2=>{
-            if(elemento == elemento2)
-                cont++;
-        })
-    })
-    return cont;
-}
-//Cronômetro
+//botões menu
+const butJogo = document.getElementById('butJogo');
+butJogo.addEventListener('click', () => {
+    window.location.href = 'jogo.html';
+});
+const butInicial = document.getElementById('butInicial');
+butInicial.addEventListener('click', () => {
+    window.location.href = 'index.html';
+});
+
+
+//########Cronometro para iniciar o jogo
 const minutos = document.querySelector("#minutos");
 const segundos = document.querySelector("#segundos");
 const milisegundos = document.querySelector("#milisegundos");
@@ -157,5 +119,44 @@ function formatoCronometro(tempo) {
 }
 function formatoMilisec(tempo) {
     return (tempo < 100) ? `${tempo}`.padStart(3, "0") : tempo;
+}
+//Jogo
+function removeIMG() {
+    const imagens = document.querySelectorAll('.img');
+    let cont = 0;
+    imagens.forEach(aimagem => {
+        aimagem.addEventListener('click', event => {
+            let errado = true;
+            for (let i = 0; i < 15; i++) {
+                if (aimagem.getAttribute('src') == vetorImg1[i]) {
+                    errado = false;
+                    cont++;
+                    break;
+                }
+                else if (aimagem.getAttribute('src') != vetorImg1[i]) {
+                    errado = true;
+                }
+            }
+            if (errado) {
+                alert(`Fim de jogo\nPontuação: ${cont}/${pontuacaoVitoria()} acertos!`);
+                window.location.reload();
+            }
+            else if(cont==pontuacaoVitoria()){
+                alert(`Você achou todas as suas fotos!!!\nPontuação: ${cont}/${pontuacaoVitoria()}!`);
+                window.location.href = "../index.html";
+            }
+            aimagem.remove();
+        });
+    });
+}
+function pontuacaoVitoria() {
+    let cont = 0;
+    vetorImg1.forEach(elemento =>{
+        vetorImg2.forEach(elemento2=>{
+            if(elemento == elemento2)
+                cont++;
+        })
+    })
+    return cont;
 }
 

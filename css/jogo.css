@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     display: grid;
-    /* text-align: center; */
     background-color: rgb(71, 100, 71);
     background-image: url("../assets/bg/bg_jungle2.jpg");
     background-repeat: no-repeat;
@@ -122,12 +121,12 @@ h1{
     padding: 0px 0px 0px 0px;
     grid-area: titulo;
     text-align: center;
-    /* background-color: aqua; */
+    
 }
 #menu{
     grid-area: menu;
     text-align: center;
-    /* background-color: yellow; */
+    
 }
 
 #rodape {

@@ -1,4 +1,4 @@
-
+/*grids*/
 body{
     margin: 0;
     padding: 0;
@@ -32,26 +32,27 @@ body{
     /1fr 1fr
     ;
 }
+/*elementos*/
 #titulo{
     padding: 0px 0px 0px 0px;
     grid-area: titulo;
     text-align: center;
-    /* background-color: aqua; */
+    
 }
 #menu{
     grid-area: menu;
     text-align: center;
-    /* background-color: yellow; */
+    
 }
 #instrucao{
     grid-area: instrucao;
-    /* background-color: red; */
+    
 }
 .introducao{
     grid-area: historia;
-    /* background-color: green; */
+    
     color: yellow; 
-    /* -webkit-text-stroke: 2px rgb(255, 251, 190);  */
+    
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
     font-size: 16px; 
     font-family: Arial, sans-serif; 
@@ -60,16 +61,16 @@ body{
 #rodape{
     grid-area: rodape;
     font-family: Arial, sans-serif; 
-    /* background-color: grey; */
+    
 }
 #principal{
     grid-area: principal;
-    /* background-color: blue; */
+    
 }
 #jogo{
     grid-area: jogo;
    
-    /* background-color: blueviolet; */
+    
 }
 
 .botoes {

@@ -1,3 +1,4 @@
+//botoes menu
 butJogo.addEventListener('click',()=>{
     window.location.href='jogo.html';
 });
